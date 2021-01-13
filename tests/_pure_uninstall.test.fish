@@ -1,5 +1,5 @@
 source (dirname (status filename))/fixtures/constants.fish
-@mesg (_print_filename (status filename))
+@echo (_print_filename (status filename))
 
 
 function setup

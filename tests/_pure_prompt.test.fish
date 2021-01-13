@@ -10,7 +10,7 @@ source (dirname (status filename))/../functions/_pure_string_width.fish
 source (dirname (status filename))/../functions/_pure_prompt_system_time.fish
 source (dirname (status filename))/../functions/_pure_prefix_root_prompt.fish
 source (dirname (status filename))/../functions/_pure_is_single_line_prompt.fish
-@mesg (_print_filename (status filename))
+@echo (_print_filename (status filename))
 
 
 function setup

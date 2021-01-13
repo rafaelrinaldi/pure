@@ -4,7 +4,7 @@ source (dirname (status filename))/../functions/_pure_prompt_git_branch.fish
 source (dirname (status filename))/../functions/_pure_parse_git_branch.fish
 source (dirname (status filename))/../functions/_pure_string_width.fish
 source (dirname (status filename))/../functions/_pure_prompt_git_stash.fish
-@mesg (_print_filename (status filename))
+@echo (_print_filename (status filename))
 
 
 function setup

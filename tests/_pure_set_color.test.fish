@@ -1,6 +1,6 @@
 source (dirname (status filename))/fixtures/constants.fish
 source (dirname (status filename))/../functions/_pure_set_color.fish
-@mesg (_print_filename (status filename))
+@echo (_print_filename (status filename))
 
 
 @test "_pure_set_color: set using a named color" (
