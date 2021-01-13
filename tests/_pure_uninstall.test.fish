@@ -5,7 +5,7 @@ source (dirname (status filename))/fixtures/constants.fish
 function setup
     _purge_configs
     _disable_colors
-end
+end; setup
 
 
 @test "init: source uninstall handler"  (

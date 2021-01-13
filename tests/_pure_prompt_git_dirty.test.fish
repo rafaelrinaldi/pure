@@ -13,7 +13,7 @@ function setup
 
     _purge_configs
     _disable_colors
-end
+end; setup
 
 function teardown
     rm -rf /tmp/pure_pure_prompt_git_dirty
@@ -44,3 +44,6 @@ end
 
     _pure_prompt_git_dirty
 ) = (set_color brblack)'*'
+
+
+teardown

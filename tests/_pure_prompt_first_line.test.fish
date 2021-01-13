@@ -19,7 +19,7 @@ function setup
     function _pure_prompt_command_duration; echo '1s'; end
     function _pure_string_width; echo 15; end
     function _pure_prompt_current_folder; pwd; end
-end
+end; setup
 
 function teardown
     functions --erase _pure_print_prompt
@@ -30,6 +30,7 @@ function teardown
     functions --erase _pure_string_width
     functions --erase _pure_prompt_current_folder
 end
+
 
 @test "_pure_prompt_first_line: fails when git is missing" (
     functions --copy type builtin_type
@@ -72,3 +73,6 @@ if test "$USER" = 'nemo'
     string match --quiet --entire --regex "nemo@[\w]+" (_pure_prompt_container)
 ) $status -eq $SUCCESS
 end
+
+
+teardown

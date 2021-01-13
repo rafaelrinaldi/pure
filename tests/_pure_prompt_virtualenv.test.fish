@@ -5,7 +5,7 @@ source (dirname (status filename))/../functions/_pure_prompt_virtualenv.fish
 
 function setup
     _disable_colors
-end
+end; setup
 
 function teardown
     set --erase --global VIRTUAL_ENV
@@ -37,3 +37,5 @@ end
     _pure_prompt_virtualenv
 ) = 'project'
 
+
+teardown

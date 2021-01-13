@@ -7,7 +7,7 @@ source (dirname (status filename))/../functions/_pure_prompt_new_line.fish
 function setup
     _purge_configs
     _disable_colors
-end
+end; setup
 
 
 @test "_pure_prompt_new_line: print prompt with newline for existing session" (

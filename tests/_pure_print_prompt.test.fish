@@ -7,7 +7,7 @@ source (dirname (status filename))/../functions/_pure_string_width.fish
 function setup
     _purge_configs
     _disable_colors
-end
+end; setup
 
 @test "_pure_print_prompt: returns nothing when no argument provided" (
     _pure_print_prompt

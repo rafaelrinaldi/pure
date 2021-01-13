@@ -8,7 +8,7 @@ source (dirname (status filename))/../functions/_pure_prompt_container.fish
 function setup
     _purge_configs
     _disable_colors
-end
+end; setup
 
 if test "$USER" = 'nemo'
 @test "_pure_prompt_container: displays 'user@hostname' when inside container" (

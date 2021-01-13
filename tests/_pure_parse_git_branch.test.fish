@@ -12,7 +12,12 @@ function setup
     git init --quiet
     git config --global user.email "you@example.com"
     git config --global user.name "Your Name"
+end; setup
+
+function teardown
+    rm -rf /tmp/test_pure_parse_git_branch
 end
+
 
 @test "_pure_parse_git_branch: returns current branch" (
     cd /tmp/test_pure_parse_git_branch
@@ -35,6 +40,5 @@ end
     _pure_parse_git_branch
 ) = 'master~1'
 
-function teardown
-    rm -rf /tmp/test_pure_parse_git_branch
-end
+
+teardown

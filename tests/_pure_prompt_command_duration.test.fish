@@ -7,7 +7,7 @@ source (dirname (status filename))/../functions/_pure_prompt_command_duration.fi
 function setup
     _purge_configs
     _disable_colors
-end
+end; setup
 
 
 @test "_pure_prompt_command_duration: hide command duration when it's zero" (

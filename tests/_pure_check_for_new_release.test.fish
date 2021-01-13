@@ -6,7 +6,7 @@ source (dirname (status filename))/../functions/_pure_check_for_new_release.fish
 function setup
     _purge_configs
     _disable_colors
-end
+end; setup
 
 @test "_pure_check_for_new_release: is disabled" (
     set --universal pure_check_for_new_release false

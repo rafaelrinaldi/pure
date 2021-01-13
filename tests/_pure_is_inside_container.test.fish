@@ -10,13 +10,14 @@ function setup
     set --global cgroup_namespace /tmp/proc/1/cgroup
     set --global namespace (dirname $cgroup_namespace)
     mkdir -p $namespace; and touch $cgroup_namespace
-end
+end; setup
 
 function teardown
     rm -rf $namespace
     set --erase cgroup_namespace
     set --erase namespace
 end
+
 
 @test "_pure_is_inside_container: false for host OS" (
     echo "1:name=systemd:/init.scope" > $cgroup_namespace
@@ -44,3 +45,5 @@ end
     _pure_is_inside_container
 ) $status -eq $SUCCESS
 
+
+teardown

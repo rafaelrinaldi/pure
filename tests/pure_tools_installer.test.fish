@@ -30,7 +30,7 @@ function setup
         remove_fish_prompt_files
         echo '' > $HOME/.config/fish/config.fish
     end
-end
+end; setup
 
 
 @test "installer: pass argument to set $FISH_CONFIG_DIR" (

@@ -9,7 +9,7 @@ function setup
     _disable_colors
 
     set --universal pure_symbol_prompt '>'  # using default ❯ break following tests
-end
+end; setup
 
 
 @test "_pure_prompt_symbol: colorizes prompt in green when last command succeed" (

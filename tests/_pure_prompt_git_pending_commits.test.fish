@@ -20,7 +20,7 @@ function setup
 
     _purge_configs
     _disable_colors
-end
+end; setup
 
 function teardown
     rm -rf \
@@ -29,6 +29,7 @@ function teardown
     set --erase --global fake_repo
     set --erase --global fake_remote
 end
+
 
 @test "_pure_prompt_git_pending_commits: print nothing when no upstream repo" (
     cd $fake_repo
@@ -85,3 +86,6 @@ end
 
     _pure_prompt_git_pending_commits
 ) = (set_color cyan)'^'
+
+
+teardown

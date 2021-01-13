@@ -8,7 +8,7 @@ function setup
     _purge_configs
     _disable_colors
     function _pure_prompt_first_line; echo $EMPTY; end
-end
+end; setup
 
 function teardown
     functions --erase _pure_prompt_first_line
@@ -24,3 +24,6 @@ end
 
     _pure_print_prompt_rows | wc -l
 ) = 0
+
+
+teardown

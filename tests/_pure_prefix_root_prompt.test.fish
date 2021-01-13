@@ -7,7 +7,7 @@ function setup
     _purge_configs
     _disable_colors
     set --universal pure_symbol_prefix_root_prompt '#'
-end
+end; setup
 
 @test "_pure_prefix_root_prompt: is empty for unprivileged user" (
     set --universal pure_show_prefix_root_prompt true

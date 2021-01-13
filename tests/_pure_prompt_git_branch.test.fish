@@ -14,7 +14,7 @@ function setup
 
     _purge_configs
     _disable_colors
-end
+end; setup
 
 function teardown
     rm -rf /tmp/test_pure_prompt_git_branch
@@ -30,3 +30,6 @@ end
     set --universal pure_color_git_branch grey
     _pure_prompt_git_branch
 ) = (set_color grey)'master'
+
+
+teardown

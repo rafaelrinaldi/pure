@@ -6,7 +6,7 @@ source (dirname (status filename))/../functions/_pure_set_default.fish
 function setup
     _purge_configs
     _disable_colors
-end
+end; setup
 
 @test "configure: pure_version"  (
     set --erase pure_version

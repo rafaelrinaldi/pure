@@ -6,7 +6,7 @@ source (dirname (status filename))/../functions/_pure_string_width.fish
 function setup
     _purge_configs
     _disable_colors
-end
+end; setup
 
 
 @test "_pure_string_width: measure empty string" (

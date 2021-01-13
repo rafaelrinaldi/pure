@@ -6,7 +6,7 @@ source (dirname (status filename))/../functions/_pure_place_iterm2_prompt_mark.f
 function setup
     _purge_configs
     _disable_colors
-end
+end; setup
 
 
 @test "_pure_place_iterm2_prompt_mark: no iterm2 prompt mark when NOT in iTerm" (

@@ -13,11 +13,12 @@ function setup
 
     _purge_configs
     _disable_colors
-end
+end; setup
 
 function teardown
     rm -rf /tmp/test_pure_prompt_git
 end
+
 
 @test "_pure_prompt_git: ignores directory that are not git repository" (
     function _pure_prompt_git_dirty; echo $EMPTY; end
@@ -65,3 +66,6 @@ end
 
     _pure_prompt_git
 ) $status -eq $SUCCESS
+
+
+teardown

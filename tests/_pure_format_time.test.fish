@@ -6,7 +6,7 @@ source (dirname (status filename))/../functions/_pure_format_time.fish
 function setup
     _purge_configs
     _disable_colors
-end
+end; setup
 
 set --local threshold 0 # in seconds
 

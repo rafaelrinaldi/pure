@@ -17,7 +17,7 @@ function setup
     _purge_configs
     _disable_colors
     set --universal pure_symbol_prompt '>'  # using default ❯ break following tests
-end
+end; setup
 
 function teardown
     functions --erase id
@@ -57,3 +57,6 @@ end
 
     _pure_prompt $SUCCESS
 ) = ' >'
+
+
+teardown

@@ -6,7 +6,7 @@ source (dirname (status filename))/../functions/_pure_prompt_vimode.fish
 function setup
     _purge_configs
     _disable_colors
-end
+end; setup
 
 
 @test "_pure_prompt_vimode: hides vimode prompt by default" (

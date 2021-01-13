@@ -8,7 +8,12 @@ function setup
     cd /tmp/current/directory/
 
     function _pure_parse_directory; echo /tmp/current/directory; end
+end; setup
+
+function teardown
+    functions --erase _pure_parse_directory
 end
+
 
 @test "fish_title: contains current directory and previous command" (
     set --universal pure_symbol_title_bar_separator '-'
@@ -24,6 +29,5 @@ end
     fish_title
 ) = "/tmp/current/directory - fish"
 
-function teardown
-    functions --erase _pure_parse_directory
-end
+
+teardown

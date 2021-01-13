@@ -13,11 +13,12 @@ function setup
 
     _purge_configs
     _disable_colors
-end
+end; setup
 
 function teardown
     rm -rf /tmp/pure_pure_prompt_git_stash
 end
+
 
 @test "_pure_prompt_git_stash: no indicator when no stash" (
     set --universal pure_symbol_git_stash '≡'
@@ -53,3 +54,5 @@ end
     _pure_prompt_git_stash
 ) = (set_color cyan)' ≡'
 
+
+teardown

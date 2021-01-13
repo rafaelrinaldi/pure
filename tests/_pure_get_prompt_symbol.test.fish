@@ -8,7 +8,7 @@ function setup
     _disable_colors
     set --universal pure_symbol_prompt '❯'
     set --universal pure_symbol_reverse_prompt '❮'
-end
+end; setup
 
 function teardown
     set fish_key_bindings fish_default_key_bindings
@@ -69,3 +69,6 @@ end
 
     _pure_get_prompt_symbol
 ) = '❮'
+
+
+teardown

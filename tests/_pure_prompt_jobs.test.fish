@@ -8,7 +8,7 @@ function setup
     _disable_colors
 
     set --global JOB_DURATION 1.5
-end
+end; setup
 
 function teardown
     set --erase --global JOB_DURATION
@@ -35,3 +35,6 @@ end
     _pure_prompt_jobs
     kill (jobs -p)
 ) = (set_color grey)'[1]'
+
+
+teardown

@@ -4,7 +4,7 @@ source (dirname (status filename))/fixtures/constants.fish
 
 function setup
     cp tests/fixtures/{config.mock.fish,config.fish}
-end
+end; setup
 
 function teardown
     rm tests/fixtures/config.fish
@@ -18,3 +18,6 @@ end
 
     diff -U $NONE (dirname (status filename))/fixtures/config.expected.fish $file_to_migrate
 ) $status -eq $SUCCESS
+
+
+teardown

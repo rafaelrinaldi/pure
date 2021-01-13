@@ -6,7 +6,7 @@ source (dirname (status filename))/../functions/_pure_user_at_host.fish
 function setup
     _purge_configs
     _disable_colors
-end
+end; setup
 
 
 @test "_pure_user_at_host: standard user" (
