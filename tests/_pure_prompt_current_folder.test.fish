@@ -1,7 +1,7 @@
 source $current_dirname/fixtures/constants.fish
 source $current_dirname/../functions/_pure_prompt_current_folder.fish
 source $current_dirname/../functions/_pure_parse_directory.fish
-@mesg (_print_filename $current_filename)
+@mesg (_print_filename (status filename))
 
 
 function setup

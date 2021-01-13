@@ -2,7 +2,7 @@ source $current_dirname/fixtures/constants.fish
 source $current_dirname/../functions/fish_prompt.fish
 source $current_dirname/../functions/_pure_print_prompt_rows.fish
 source $current_dirname/../functions/_pure_is_single_line_prompt.fish
-@mesg (_print_filename $current_filename)
+@mesg (_print_filename (status filename))
 
 
 function setup

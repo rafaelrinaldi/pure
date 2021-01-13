@@ -1,6 +1,6 @@
 source $current_dirname/fixtures/constants.fish
 source $current_dirname/../tools/installer.fish
-@mesg (_print_filename $current_filename)
+@mesg (_print_filename (status filename))
 
 
 function remove_pure_files

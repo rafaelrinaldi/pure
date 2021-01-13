@@ -1,6 +1,6 @@
 source $current_dirname/fixtures/constants.fish
 source $current_dirname/../tools/versions-compare.fish
-@mesg (_print_filename $current_filename)
+@mesg (_print_filename (status filename))
 
 
 @test "fish_version_below: fails on itself" (

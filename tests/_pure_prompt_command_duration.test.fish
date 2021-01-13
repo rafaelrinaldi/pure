@@ -1,7 +1,7 @@
 source $current_dirname/fixtures/constants.fish
 source $current_dirname/../functions/_pure_format_time.fish
 source $current_dirname/../functions/_pure_prompt_command_duration.fish
-@mesg (_print_filename $current_filename)
+@mesg (_print_filename (status filename))
 
 
 function setup
