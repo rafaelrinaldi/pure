@@ -1,6 +1,6 @@
-source $current_dirname/fixtures/constants.fish
-source $current_dirname/../functions/_pure_format_time.fish
-source $current_dirname/../functions/_pure_prompt_command_duration.fish
+source (dirname (status filename))/fixtures/constants.fish
+source (dirname (status filename))/../functions/_pure_format_time.fish
+source (dirname (status filename))/../functions/_pure_prompt_command_duration.fish
 @mesg (_print_filename (status filename))
 
 

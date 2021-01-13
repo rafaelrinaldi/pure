@@ -1,5 +1,5 @@
-source $current_dirname/fixtures/constants.fish
-source $current_dirname/../tools/installer.fish
+source (dirname (status filename))/fixtures/constants.fish
+source (dirname (status filename))/../tools/installer.fish
 @mesg (_print_filename (status filename))
 
 
@@ -127,7 +127,7 @@ end
 
 if test "$USER" = 'nemo'
     @test "installation methods: manually (with local installer)" (
-        source $current_dirname/../tools/installer.fish
+        source (dirname (status filename))/../tools/installer.fish
         and install_pure >/dev/null
         for config in $PURE_INSTALL_DIR/conf.d/*
             source $config

@@ -1,6 +1,6 @@
-source $current_dirname/fixtures/constants.fish
-source $current_dirname/../functions/_pure_prompt_current_folder.fish
-source $current_dirname/../functions/_pure_parse_directory.fish
+source (dirname (status filename))/fixtures/constants.fish
+source (dirname (status filename))/../functions/_pure_prompt_current_folder.fish
+source (dirname (status filename))/../functions/_pure_parse_directory.fish
 @mesg (_print_filename (status filename))
 
 

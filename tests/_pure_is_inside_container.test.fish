@@ -1,5 +1,5 @@
-source $current_dirname/fixtures/constants.fish
-source $current_dirname/../functions/_pure_is_inside_container.fish
+source (dirname (status filename))/fixtures/constants.fish
+source (dirname (status filename))/../functions/_pure_is_inside_container.fish
 @mesg (_print_filename (status filename))
 
 

@@ -1,5 +1,5 @@
-source $current_dirname/fixtures/constants.fish
-source $current_dirname/../functions/_pure_prompt_git_stash.fish
+source (dirname (status filename))/fixtures/constants.fish
+source (dirname (status filename))/../functions/_pure_prompt_git_stash.fish
 @mesg (_print_filename (status filename))
 
 
@@ -46,7 +46,7 @@ end
     git add stash.file
     git stash --quiet
 
-    source $current_dirname/../functions/_pure_set_color.fish # enable colors
+    source (dirname (status filename))/../functions/_pure_set_color.fish # enable colors
     set --universal pure_symbol_git_stash '≡'
     set --universal pure_color_git_stash cyan
 

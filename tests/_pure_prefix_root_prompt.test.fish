@@ -1,5 +1,5 @@
-source $current_dirname/fixtures/constants.fish
-source $current_dirname/../functions/_pure_prefix_root_prompt.fish
+source (dirname (status filename))/fixtures/constants.fish
+source (dirname (status filename))/../functions/_pure_prefix_root_prompt.fish
 @mesg (_print_filename (status filename))
 
 
@@ -24,7 +24,7 @@ end
 ) = "#"
 
 @test "_pure_prefix_root_prompt: colorize root prefix symbol" (
-    source $current_dirname/../functions/_pure_set_color.fish
+    source (dirname (status filename))/../functions/_pure_set_color.fish
     set --universal pure_show_prefix_root_prompt true
     set --universal pure_color_prefix_root_prompt red
     function id; echo 'root'; end # mock

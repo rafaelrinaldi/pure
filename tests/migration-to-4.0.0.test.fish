@@ -1,4 +1,4 @@
-source $current_dirname/fixtures/constants.fish
+source (dirname (status filename))/fixtures/constants.fish
 @mesg (_print_filename (status filename))
 
 
@@ -12,9 +12,9 @@ end
 
 
 @test "migrate all variables" (
-    set file_to_migrate $current_dirname/fixtures/config.mock.fish  # created during 'setup'
+    set file_to_migrate (dirname (status filename))/fixtures/config.mock.fish  # created during 'setup'
 
-    fish $current_dirname/../tools/migration-to-4.0.0.fish $file_to_migrate 2>&1 >/dev/null
+    fish (dirname (status filename))/../tools/migration-to-4.0.0.fish $file_to_migrate 2>&1 >/dev/null
 
-    diff -U $NONE $current_dirname/fixtures/config.expected.fish $file_to_migrate
+    diff -U $NONE (dirname (status filename))/fixtures/config.expected.fish $file_to_migrate
 ) $status -eq $SUCCESS
