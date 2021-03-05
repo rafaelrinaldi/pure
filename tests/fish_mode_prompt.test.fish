@@ -1,6 +1,6 @@
-source $current_dirname/fixtures/constants.fish
-source $current_dirname/../functions/fish_mode_prompt.fish
-@mesg (_print_filename $current_filename)
+source (dirname (status filename))/fixtures/constants.fish
+source (dirname (status filename))/../functions/fish_mode_prompt.fish
+@echo (_print_filename (status filename))
 
 
 @test "fish_mode_prompt: succeed" (

@@ -1,7 +1,7 @@
-source $current_dirname/fixtures/constants.fish
-source $current_dirname/../functions/_pure_prompt_git_branch.fish
-source $current_dirname/../functions/_pure_parse_git_branch.fish
-@mesg (_print_filename $current_filename)
+source (dirname (status filename))/fixtures/constants.fish
+source (dirname (status filename))/../functions/_pure_prompt_git_branch.fish
+source (dirname (status filename))/../functions/_pure_parse_git_branch.fish
+@echo (_print_filename (status filename))
 
 
 function setup
@@ -14,7 +14,7 @@ function setup
 
     _purge_configs
     _disable_colors
-end
+end; setup
 
 function teardown
     rm -rf /tmp/test_pure_prompt_git_branch
@@ -26,7 +26,10 @@ end
 ) = 'master'
 
 @test "_pure_prompt_git_branch: colorize branch name" (
-    source $current_dirname/../functions/_pure_set_color.fish # enable colors
+    source (dirname (status filename))/../functions/_pure_set_color.fish # enable colors
     set --universal pure_color_git_branch grey
     _pure_prompt_git_branch
 ) = (set_color grey)'master'
+
+
+teardown

@@ -1,12 +1,12 @@
-source $current_dirname/fixtures/constants.fish
-source $current_dirname/../functions/_pure_set_default.fish
-@mesg (_print_filename $current_filename)
+source (dirname (status filename))/fixtures/constants.fish
+source (dirname (status filename))/../functions/_pure_set_default.fish
+@echo (_print_filename (status filename))
 
 
 function setup
     _purge_configs
     _disable_colors
-end
+end; setup
 
 function teardown
     set --erase --universal pure_fake_config
@@ -48,3 +48,5 @@ end
     echo $pure_fake_config
 ) != 'new' # ⚠️ Universal variable is shadowed by the global variable of the same name.
 
+
+teardown

@@ -1,14 +1,14 @@
-source $current_dirname/fixtures/constants.fish
-source $current_dirname/../functions/_pure_is_single_line_prompt.fish
-source $current_dirname/../functions/_pure_print_prompt_rows.fish
-@mesg (_print_filename $current_filename)
+source (dirname (status filename))/fixtures/constants.fish
+source (dirname (status filename))/../functions/_pure_is_single_line_prompt.fish
+source (dirname (status filename))/../functions/_pure_print_prompt_rows.fish
+@echo (_print_filename (status filename))
 
 
 function setup
     _purge_configs
     _disable_colors
     function _pure_prompt_first_line; echo $EMPTY; end
-end
+end; setup
 
 function teardown
     functions --erase _pure_prompt_first_line
@@ -24,3 +24,6 @@ end
 
     _pure_print_prompt_rows | wc -l
 ) = 0
+
+
+teardown

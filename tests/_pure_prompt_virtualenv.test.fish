@@ -1,11 +1,11 @@
-source $current_dirname/fixtures/constants.fish
-source $current_dirname/../functions/_pure_prompt_virtualenv.fish
-@mesg (_print_filename $current_filename)
+source (dirname (status filename))/fixtures/constants.fish
+source (dirname (status filename))/../functions/_pure_prompt_virtualenv.fish
+@echo (_print_filename (status filename))
 
 
 function setup
     _disable_colors
-end
+end; setup
 
 function teardown
     set --erase --global VIRTUAL_ENV
@@ -37,3 +37,5 @@ end
     _pure_prompt_virtualenv
 ) = 'project'
 
+
+teardown

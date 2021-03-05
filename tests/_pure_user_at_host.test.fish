@@ -1,12 +1,12 @@
-source $current_dirname/fixtures/constants.fish
-source $current_dirname/../functions/_pure_user_at_host.fish
-@mesg (_print_filename $current_filename)
+source (dirname (status filename))/fixtures/constants.fish
+source (dirname (status filename))/../functions/_pure_user_at_host.fish
+@echo (_print_filename (status filename))
 
 
 function setup
     _purge_configs
     _disable_colors
-end
+end; setup
 
 
 @test "_pure_user_at_host: standard user" (
@@ -20,7 +20,7 @@ end
 ) $status -eq $SUCCESS
 
 @test "_pure_user_at_host: colorize for normal user" (
-    source $current_dirname/../functions/_pure_set_color.fish # enable colors
+    source (dirname (status filename))/../functions/_pure_set_color.fish # enable colors
     set --universal pure_color_username_normal green
     set --universal pure_color_at_sign grey
     set --universal pure_color_hostname blue
@@ -29,7 +29,7 @@ end
 ) $status -eq $SUCCESS
 
 @test "_pure_user_at_host: colorize for root user" (
-    source $current_dirname/../functions/_pure_set_color.fish # enable colors
+    source (dirname (status filename))/../functions/_pure_set_color.fish # enable colors
     function id; echo 'root'; end # mock
     set --universal pure_color_username_root red
     set --universal pure_color_at_sign grey

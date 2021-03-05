@@ -1,8 +1,8 @@
-source $current_dirname/fixtures/constants.fish
-source $current_dirname/../functions/fish_prompt.fish
-source $current_dirname/../functions/_pure_print_prompt_rows.fish
-source $current_dirname/../functions/_pure_is_single_line_prompt.fish
-@mesg (_print_filename $current_filename)
+source (dirname (status filename))/fixtures/constants.fish
+source (dirname (status filename))/../functions/fish_prompt.fish
+source (dirname (status filename))/../functions/_pure_print_prompt_rows.fish
+source (dirname (status filename))/../functions/_pure_is_single_line_prompt.fish
+@echo (_print_filename (status filename))
 
 
 function setup
@@ -11,7 +11,7 @@ function setup
     function _pure_place_iterm2_prompt_mark; end
     function _pure_prompt; echo '❯'; end
     function _pure_prompt_ending; echo ']'; end
-end
+end; setup
 
 @test "fish_prompt: succeed" (
     fish_prompt 2>&1 >/dev/null

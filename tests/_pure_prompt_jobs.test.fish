@@ -1,6 +1,6 @@
-source $current_dirname/fixtures/constants.fish
-source $current_dirname/../functions/_pure_prompt_jobs.fish
-@mesg (_print_filename $current_filename)
+source (dirname (status filename))/fixtures/constants.fish
+source (dirname (status filename))/../functions/_pure_prompt_jobs.fish
+@echo (_print_filename (status filename))
 
 
 function setup
@@ -8,7 +8,7 @@ function setup
     _disable_colors
 
     set --global JOB_DURATION 1.5
-end
+end; setup
 
 function teardown
     set --erase --global JOB_DURATION
@@ -27,7 +27,7 @@ end
 ) = '[1]'
 
 @test "_pure_prompt_jobs: colorize jobs" (
-    source $current_dirname/../functions/_pure_set_color.fish # enable colors
+    source (dirname (status filename))/../functions/_pure_set_color.fish # enable colors
     set --universal pure_color_jobs grey
     set --universal pure_show_jobs true
     sleep $JOB_DURATION &
@@ -35,3 +35,6 @@ end
     _pure_prompt_jobs
     kill (jobs -p)
 ) = (set_color grey)'[1]'
+
+
+teardown

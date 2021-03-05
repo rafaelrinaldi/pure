@@ -1,6 +1,6 @@
-source $current_dirname/fixtures/constants.fish
-source $current_dirname/../functions/_pure_prompt_git_stash.fish
-@mesg (_print_filename $current_filename)
+source (dirname (status filename))/fixtures/constants.fish
+source (dirname (status filename))/../functions/_pure_prompt_git_stash.fish
+@echo (_print_filename (status filename))
 
 
 function setup
@@ -13,11 +13,12 @@ function setup
 
     _purge_configs
     _disable_colors
-end
+end; setup
 
 function teardown
     rm -rf /tmp/pure_pure_prompt_git_stash
 end
+
 
 @test "_pure_prompt_git_stash: no indicator when no stash" (
     set --universal pure_symbol_git_stash '≡'
@@ -46,10 +47,12 @@ end
     git add stash.file
     git stash --quiet
 
-    source $current_dirname/../functions/_pure_set_color.fish # enable colors
+    source (dirname (status filename))/../functions/_pure_set_color.fish # enable colors
     set --universal pure_symbol_git_stash '≡'
     set --universal pure_color_git_stash cyan
 
     _pure_prompt_git_stash
 ) = (set_color cyan)' ≡'
 
+
+teardown

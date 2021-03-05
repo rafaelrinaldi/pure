@@ -1,12 +1,12 @@
-source $current_dirname/fixtures/constants.fish
-source $current_dirname/../functions/_pure_parse_directory.fish
-@mesg (_print_filename $current_filename)
+source (dirname (status filename))/fixtures/constants.fish
+source (dirname (status filename))/../functions/_pure_parse_directory.fish
+@echo (_print_filename (status filename))
 
 
 function setup
     _purge_configs
     _disable_colors
-end
+end; setup
 
 
 @test "_pure_parse_directory: returns current directory" (

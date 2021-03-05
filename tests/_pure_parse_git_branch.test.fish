@@ -1,6 +1,6 @@
-source $current_dirname/fixtures/constants.fish
-source $current_dirname/../functions/_pure_parse_git_branch.fish
-@mesg (_print_filename $current_filename)
+source (dirname (status filename))/fixtures/constants.fish
+source (dirname (status filename))/../functions/_pure_parse_git_branch.fish
+@echo (_print_filename (status filename))
 
 
 function setup
@@ -12,7 +12,12 @@ function setup
     git init --quiet
     git config --global user.email "you@example.com"
     git config --global user.name "Your Name"
+end; setup
+
+function teardown
+    rm -rf /tmp/test_pure_parse_git_branch
 end
+
 
 @test "_pure_parse_git_branch: returns current branch" (
     cd /tmp/test_pure_parse_git_branch
@@ -35,6 +40,5 @@ end
     _pure_parse_git_branch
 ) = 'master~1'
 
-function teardown
-    rm -rf /tmp/test_pure_parse_git_branch
-end
+
+teardown

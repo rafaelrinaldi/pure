@@ -1,6 +1,6 @@
-source $current_dirname/fixtures/constants.fish
-source $current_dirname/../functions/_pure_prompt_git_pending_commits.fish
-@mesg (_print_filename $current_filename)
+source (dirname (status filename))/fixtures/constants.fish
+source (dirname (status filename))/../functions/_pure_prompt_git_pending_commits.fish
+@echo (_print_filename (status filename))
 
 
 function setup
@@ -20,7 +20,7 @@ function setup
 
     _purge_configs
     _disable_colors
-end
+end; setup
 
 function teardown
     rm -rf \
@@ -29,6 +29,7 @@ function teardown
     set --erase --global fake_repo
     set --erase --global fake_remote
 end
+
 
 @test "_pure_prompt_git_pending_commits: print nothing when no upstream repo" (
     cd $fake_repo
@@ -79,9 +80,12 @@ end
     git add missing-on-upstream.txt
     git commit --quiet --message='missing on upstream'
 
-    source $current_dirname/../functions/_pure_set_color.fish # enable colors
+    source (dirname (status filename))/../functions/_pure_set_color.fish # enable colors
     set --universal pure_symbol_git_unpushed_commits '^'
     set --universal pure_color_git_unpushed_commits cyan
 
     _pure_prompt_git_pending_commits
 ) = (set_color cyan)'^'
+
+
+teardown

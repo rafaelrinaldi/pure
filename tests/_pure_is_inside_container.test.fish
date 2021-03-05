@@ -1,6 +1,6 @@
-source $current_dirname/fixtures/constants.fish
-source $current_dirname/../functions/_pure_is_inside_container.fish
-@mesg (_print_filename $current_filename)
+source (dirname (status filename))/fixtures/constants.fish
+source (dirname (status filename))/../functions/_pure_is_inside_container.fish
+@echo (_print_filename (status filename))
 
 
 function setup
@@ -10,13 +10,14 @@ function setup
     set --global cgroup_namespace /tmp/proc/1/cgroup
     set --global namespace (dirname $cgroup_namespace)
     mkdir -p $namespace; and touch $cgroup_namespace
-end
+end; setup
 
 function teardown
     rm -rf $namespace
     set --erase cgroup_namespace
     set --erase namespace
 end
+
 
 @test "_pure_is_inside_container: false for host OS" (
     echo "1:name=systemd:/init.scope" > $cgroup_namespace
@@ -44,3 +45,5 @@ end
     _pure_is_inside_container
 ) $status -eq $SUCCESS
 
+
+teardown

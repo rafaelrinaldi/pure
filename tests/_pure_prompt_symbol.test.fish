@@ -1,7 +1,7 @@
-source $current_dirname/fixtures/constants.fish
-source $current_dirname/../functions/_pure_prompt_symbol.fish
-source $current_dirname/../functions/_pure_get_prompt_symbol.fish
-@mesg (_print_filename $current_filename)
+source (dirname (status filename))/fixtures/constants.fish
+source (dirname (status filename))/../functions/_pure_prompt_symbol.fish
+source (dirname (status filename))/../functions/_pure_get_prompt_symbol.fish
+@echo (_print_filename (status filename))
 
 
 function setup
@@ -9,11 +9,11 @@ function setup
     _disable_colors
 
     set --universal pure_symbol_prompt '>'  # using default ❯ break following tests
-end
+end; setup
 
 
 @test "_pure_prompt_symbol: colorizes prompt in green when last command succeed" (
-    source $current_dirname/../functions/_pure_set_color.fish # enable colors
+    source (dirname (status filename))/../functions/_pure_set_color.fish # enable colors
     set --local last_command $SUCCESS
     set --universal pure_color_prompt_on_success green
 
@@ -21,7 +21,7 @@ end
 ) = (set_color green)'>'
 
 @test "_pure_prompt_symbol: colorizes prompt in red when last command failed" (
-    source $current_dirname/../functions/_pure_set_color.fish # enable colors
+    source (dirname (status filename))/../functions/_pure_set_color.fish # enable colors
     set --local last_command $FAILURE
     set --universal pure_color_prompt_on_error red
 
@@ -29,7 +29,7 @@ end
 ) = (set_color red)'>'
 
 @test "_pure_prompt_symbol: add a magenta prompt when pure_separate_prompt_on_error is enable and last command failed" (
-    source $current_dirname/../functions/_pure_set_color.fish # enable colors
+    source (dirname (status filename))/../functions/_pure_set_color.fish # enable colors
     set --local last_command $FAILURE
     set --universal pure_color_prompt_on_error red
     set --universal pure_color_prompt_on_success magenta

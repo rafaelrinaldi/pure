@@ -1,10 +1,10 @@
-source $current_dirname/fixtures/constants.fish
-source $current_dirname/../functions/_pure_prompt_git.fish
-source $current_dirname/../functions/_pure_prompt_git_branch.fish
-source $current_dirname/../functions/_pure_parse_git_branch.fish
-source $current_dirname/../functions/_pure_string_width.fish
-source $current_dirname/../functions/_pure_prompt_git_stash.fish
-@mesg (_print_filename $current_filename)
+source (dirname (status filename))/fixtures/constants.fish
+source (dirname (status filename))/../functions/_pure_prompt_git.fish
+source (dirname (status filename))/../functions/_pure_prompt_git_branch.fish
+source (dirname (status filename))/../functions/_pure_parse_git_branch.fish
+source (dirname (status filename))/../functions/_pure_string_width.fish
+source (dirname (status filename))/../functions/_pure_prompt_git_stash.fish
+@echo (_print_filename (status filename))
 
 
 function setup
@@ -13,11 +13,12 @@ function setup
 
     _purge_configs
     _disable_colors
-end
+end; setup
 
 function teardown
     rm -rf /tmp/test_pure_prompt_git
 end
+
 
 @test "_pure_prompt_git: ignores directory that are not git repository" (
     function _pure_prompt_git_dirty; echo $EMPTY; end
@@ -65,3 +66,6 @@ end
 
     _pure_prompt_git
 ) $status -eq $SUCCESS
+
+
+teardown

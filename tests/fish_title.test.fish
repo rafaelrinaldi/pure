@@ -1,6 +1,6 @@
-source $current_dirname/fixtures/constants.fish
-source $current_dirname/../functions/fish_title.fish
-@mesg (_print_filename $current_filename)
+source (dirname (status filename))/fixtures/constants.fish
+source (dirname (status filename))/../functions/fish_title.fish
+@echo (_print_filename (status filename))
 
 
 function setup
@@ -8,7 +8,12 @@ function setup
     cd /tmp/current/directory/
 
     function _pure_parse_directory; echo /tmp/current/directory; end
+end; setup
+
+function teardown
+    functions --erase _pure_parse_directory
 end
+
 
 @test "fish_title: contains current directory and previous command" (
     set --universal pure_symbol_title_bar_separator '-'
@@ -24,6 +29,5 @@ end
     fish_title
 ) = "/tmp/current/directory - fish"
 
-function teardown
-    functions --erase _pure_parse_directory
-end
+
+teardown
