@@ -38,3 +38,21 @@ jobs:
       - name: Test Pure
         run: fishtape tests/*.test.fish
         shell: fish {0}
+
+  test-ubuntu:
+    name: Test on fish on Ubuntu
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Install Fish
+        run: |
+          sudo apt-add-repository -yn ppa:fish-shell/release-3
+          sudo apt-get update
+          sudo apt-get install -y fish
+      - name: Install Fisher > Fishtape > Pure
+        run: |
+          curl -sL https://git.io/fisher | source && fisher install jorgebucaran/fisher jorgebucaran/fishtape ./
+        shell: fish {0}
+      - name: Test Pure
+        run: fishtape tests/*.test.fish
+        shell: fish {0}
